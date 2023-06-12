@@ -16,7 +16,12 @@ open class FPNCountryListViewController: UITableViewController, UISearchResultsU
 	open var didSelect: ((FPNCountry) -> Void)?
 
 	var results: [FPNCountry]?
-
+    var cancelString: String? {
+        didSet{
+            guard let cancelString = cancelString else {return}
+            searchController.searchBar.setValue(cancelString, forKey: "cancelButtonText")
+        }
+    }
 	override open func viewDidLoad() {
 		super.viewDidLoad()
 
@@ -51,7 +56,6 @@ open class FPNCountryListViewController: UITableViewController, UISearchResultsU
 			tableView.tableHeaderView = searchController.searchBar
 		}
 		definesPresentationContext = true
-        searchController.searchBar.showsCancelButton = false
 	}
 
 	private func getItem(at indexPath: IndexPath) -> FPNCountry {
