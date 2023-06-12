@@ -21,7 +21,7 @@ open class FPNCountryListViewController: UITableViewController, UISearchResultsU
 		super.viewDidLoad()
 
 		tableView.tableFooterView = UIView()
-
+        
 		initSearchBarController()
 	}
 
@@ -51,6 +51,7 @@ open class FPNCountryListViewController: UITableViewController, UISearchResultsU
 			tableView.tableHeaderView = searchController.searchBar
 		}
 		definesPresentationContext = true
+        searchController.searchBar.showsCancelButton = false
 	}
 
 	private func getItem(at indexPath: IndexPath) -> FPNCountry {
