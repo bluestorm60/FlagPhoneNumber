@@ -16,7 +16,7 @@ open class FPNCountryListViewController: UITableViewController, UISearchResultsU
 	open var didSelect: ((FPNCountry) -> Void)?
 
 	var results: [FPNCountry]?
-    var cancelString: String? {
+    open var cancelString: String? {
         didSet{
             guard let cancelString = cancelString else {return}
             searchController.searchBar.setValue(cancelString, forKey: "cancelButtonText")
