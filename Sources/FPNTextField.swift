@@ -139,18 +139,18 @@ open class FPNTextField: UITextField {
             // Fallback on earlier versions
         }
 
-//        leftView?.addSubview(flagButton)
+        leftView?.addSubview(flagButton)
         leftView?.addSubview(phoneCodeTextField)
 
-//        flagWidthConstraint = NSLayoutConstraint(item: flagButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 0, constant: flagButtonSize.width)
-//        flagHeightConstraint = NSLayoutConstraint(item: flagButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 0, constant: flagButtonSize.height)
-//
-//        flagWidthConstraint?.isActive = true
-//        flagHeightConstraint?.isActive = true
+        flagWidthConstraint = NSLayoutConstraint(item: flagButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 0, constant: flagButtonSize.width)
+        flagHeightConstraint = NSLayoutConstraint(item: flagButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 0, constant: flagButtonSize.height)
 
-//        NSLayoutConstraint(item: flagButton, attribute: .centerY, relatedBy: .equal, toItem: leftView, attribute: .centerY, multiplier: 1, constant: 0).isActive = true
-//
-//        NSLayoutConstraint(item: flagButton, attribute: .leading, relatedBy: .equal, toItem: leftView, attribute: .leading, multiplier: 1, constant: 0).isActive = true
+        flagWidthConstraint?.isActive = true
+        flagHeightConstraint?.isActive = true
+
+        NSLayoutConstraint(item: flagButton, attribute: .centerY, relatedBy: .equal, toItem: leftView, attribute: .centerY, multiplier: 1, constant: 0).isActive = true
+
+        NSLayoutConstraint(item: flagButton, attribute: .leading, relatedBy: .equal, toItem: leftView, attribute: .leading, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: phoneCodeTextField, attribute: .centerX, relatedBy: .equal, toItem: leftView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: phoneCodeTextField, attribute: .centerY, relatedBy: .equal, toItem: leftView, attribute: .centerY, multiplier: 1, constant: 0).isActive = true
 
@@ -377,7 +377,7 @@ open class FPNTextField: UITextField {
 			formatter = NBAsYouTypeFormatter(regionCode: countryCode.rawValue)
 		}
 
-		flagButton.setImage(selectedCountry?.flag, for: .normal)
+//		flagButton.setImage(selectedCountry?.flag, for: .normal)
 
 		if let phoneCode = selectedCountry?.phoneCode {
 			phoneCodeTextField.text = phoneCode
