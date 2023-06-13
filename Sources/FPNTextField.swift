@@ -162,10 +162,10 @@ open class FPNTextField: UITextField {
 
         NSLayoutConstraint(item: dropDownImgeView, attribute: .centerY, relatedBy: .equal, toItem: leftView, attribute: .centerY, multiplier: 1, constant: -2).isActive = true
         NSLayoutConstraint(item: dropDownImgeView, attribute: .trailing, relatedBy: .equal, toItem: phoneCodeTextField, attribute: .leading, multiplier: 1, constant: 0).isActive = true
-        flagButton.backgroundColor = .blue
-        dropDownImgeView.backgroundColor = .yellow
-        phoneCodeTextField.backgroundColor = .red
-        leftView?.backgroundColor = .brown
+//        flagButton.backgroundColor = .blue
+//        dropDownImgeView.backgroundColor = .yellow
+//        phoneCodeTextField.backgroundColor = .red
+//        leftView?.backgroundColor = .brown
     }
 
 	open override func updateConstraints() {
