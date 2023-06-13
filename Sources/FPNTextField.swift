@@ -136,6 +136,7 @@ open class FPNTextField: UITextField {
         leftView = UIView()
         leftViewMode = .always
         if #available(iOS 9.0, *) {
+            leftView?.semanticContentAttribute = .forceLeftToRight
             phoneCodeTextField.semanticContentAttribute = .forceLeftToRight
         } else {
             // Fallback on earlier versions
@@ -158,7 +159,7 @@ open class FPNTextField: UITextField {
         NSLayoutConstraint(item: dropDownImgeView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 0, constant: 16.0).isActive = true
         NSLayoutConstraint(item: dropDownImgeView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 0, constant: 16.0).isActive = true
 
-        NSLayoutConstraint(item: dropDownImgeView, attribute: .centerY, relatedBy: .equal, toItem: leftView, attribute: .centerY, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: dropDownImgeView, attribute: .centerY, relatedBy: .equal, toItem: leftView, attribute: .centerY, multiplier: 1, constant: -4).isActive = true
         NSLayoutConstraint(item: dropDownImgeView, attribute: .trailing, relatedBy: .equal, toItem: phoneCodeTextField, attribute: .leading, multiplier: 1, constant: 0).isActive = true
 //        dropDownImgeView.backgroundColor = .yellow
 //        phoneCodeTextField.backgroundColor = .red
