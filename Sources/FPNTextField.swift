@@ -22,7 +22,7 @@ open class FPNTextField: UITextField {
 
 	/// The size of the leftView
 	private var leftViewSize: CGSize {
-        let width = 8.0 + getWidth(text: phoneCodeTextField.text!)
+        let width = 16.0 + 8.0 + getWidth(text: phoneCodeTextField.text!)
 		let height = bounds.height
 
 		return CGSize(width: width, height: height)
@@ -33,6 +33,7 @@ open class FPNTextField: UITextField {
 	private lazy var phoneUtil: NBPhoneNumberUtil = NBPhoneNumberUtil()
 	private var nbPhoneNumber: NBPhoneNumber?
 	private var formatter: NBAsYouTypeFormatter?
+    private var dropDownImgeView = UIImageView(image: UIImage(named: "Icon_Arrow_iOS_Downward_Copy"))
 
 	open var flagButton: UIButton = UIButton()
 
@@ -127,7 +128,8 @@ open class FPNTextField: UITextField {
 	private func setupPhoneCodeTextField() {
 		phoneCodeTextField.font = font
 		phoneCodeTextField.isUserInteractionEnabled = false
-		phoneCodeTextField.translatesAutoresizingMaskIntoConstraints = false
+        phoneCodeTextField.translatesAutoresizingMaskIntoConstraints = false
+        dropDownImgeView.translatesAutoresizingMaskIntoConstraints = false
 	}
 
 	private func setupLeftView() {
@@ -138,10 +140,9 @@ open class FPNTextField: UITextField {
         } else {
             // Fallback on earlier versions
         }
-
         leftView?.addSubview(flagButton)
         leftView?.addSubview(phoneCodeTextField)
-
+        leftView?.addSubview(dropDownImgeView)
         flagWidthConstraint = NSLayoutConstraint(item: flagButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 0, constant: flagButtonSize.width)
         flagHeightConstraint = NSLayoutConstraint(item: flagButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 0, constant: flagButtonSize.height)
 
@@ -151,13 +152,17 @@ open class FPNTextField: UITextField {
         NSLayoutConstraint(item: flagButton, attribute: .centerY, relatedBy: .equal, toItem: leftView, attribute: .centerY, multiplier: 1, constant: 0).isActive = true
 
         NSLayoutConstraint(item: flagButton, attribute: .leading, relatedBy: .equal, toItem: leftView, attribute: .leading, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: phoneCodeTextField, attribute: .centerX, relatedBy: .equal, toItem: leftView, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: phoneCodeTextField, attribute: .trailing, relatedBy: .equal, toItem: leftView, attribute: .trailing, multiplier: 1, constant: -2.0).isActive = true
         NSLayoutConstraint(item: phoneCodeTextField, attribute: .centerY, relatedBy: .equal, toItem: leftView, attribute: .centerY, multiplier: 1, constant: 0).isActive = true
+        
+        NSLayoutConstraint(item: dropDownImgeView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 0, constant: 16.0).isActive = true
+        NSLayoutConstraint(item: dropDownImgeView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 0, constant: 16.0).isActive = true
 
-//        NSLayoutConstraint(item: phoneCodeTextField, attribute: .leading, relatedBy: .equal, toItem: leftView, attribute: .trailing, multiplier: 1, constant: 0).isActive = true
-//        NSLayoutConstraint(item: phoneCodeTextField, attribute: .trailing, relatedBy: .equal, toItem: leftView, attribute: .trailing, multiplier: 1, constant: 0).isActive = true
-//        NSLayoutConstraint(item: phoneCodeTextField, attribute: .top, relatedBy: .equal, toItem: leftView, attribute: .top, multiplier: 1, constant: 0).isActive = true
-//        NSLayoutConstraint(item: phoneCodeTextField, attribute: .bottom, relatedBy: .equal, toItem: leftView, attribute: .bottom, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: dropDownImgeView, attribute: .centerY, relatedBy: .equal, toItem: leftView, attribute: .centerY, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: dropDownImgeView, attribute: .trailing, relatedBy: .equal, toItem: phoneCodeTextField, attribute: .leading, multiplier: 1, constant: 0).isActive = true
+//        dropDownImgeView.backgroundColor = .yellow
+//        phoneCodeTextField.backgroundColor = .red
+//        leftView?.backgroundColor = .brown
     }
 
 	open override func updateConstraints() {

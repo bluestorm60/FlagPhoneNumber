@@ -22,6 +22,8 @@ open class FPNCountryListViewController: UITableViewController, UISearchResultsU
             searchController.searchBar.setValue(cancelString, forKey: "cancelButtonText")
         }
     }
+    open var titleFont: UIFont?
+    
 	override open func viewDidLoad() {
 		super.viewDidLoad()
 
@@ -85,7 +87,7 @@ open class FPNCountryListViewController: UITableViewController, UISearchResultsU
 
 		cell.imageView?.image = country.flag
 		cell.textLabel?.text = country.name
-
+        cell.textLabel?.font = titleFont
 		if showCountryPhoneCode {
 			cell.detailTextLabel?.text = country.phoneCode
 		}
@@ -139,4 +141,6 @@ open class FPNCountryListViewController: UITableViewController, UISearchResultsU
 	open func willDismissSearchController(_ searchController: UISearchController) {
 		results?.removeAll()
 	}
+    
+    
 }
