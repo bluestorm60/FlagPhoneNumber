@@ -144,26 +144,28 @@ open class FPNTextField: UITextField {
         leftView?.addSubview(flagButton)
         leftView?.addSubview(phoneCodeTextField)
         leftView?.addSubview(dropDownImgeView)
-        flagWidthConstraint = NSLayoutConstraint(item: flagButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 0, constant: flagButtonSize.width)
-        flagHeightConstraint = NSLayoutConstraint(item: flagButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 0, constant: flagButtonSize.height)
-
-        flagWidthConstraint?.isActive = true
-        flagHeightConstraint?.isActive = true
+//        flagWidthConstraint = NSLayoutConstraint(item: flagButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 0, constant: flagButtonSize.width)
+//        flagHeightConstraint = NSLayoutConstraint(item: flagButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 0, constant: flagButtonSize.height)
+//
+//        flagWidthConstraint?.isActive = true
+//        flagHeightConstraint?.isActive = true
 
         NSLayoutConstraint(item: flagButton, attribute: .centerY, relatedBy: .equal, toItem: leftView, attribute: .centerY, multiplier: 1, constant: 0).isActive = true
 
         NSLayoutConstraint(item: flagButton, attribute: .leading, relatedBy: .equal, toItem: leftView, attribute: .leading, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: flagButton, attribute: .trailing, relatedBy: .equal, toItem: leftView, attribute: .trailing, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: phoneCodeTextField, attribute: .trailing, relatedBy: .equal, toItem: leftView, attribute: .trailing, multiplier: 1, constant: -2.0).isActive = true
         NSLayoutConstraint(item: phoneCodeTextField, attribute: .centerY, relatedBy: .equal, toItem: leftView, attribute: .centerY, multiplier: 1, constant: 0).isActive = true
         
         NSLayoutConstraint(item: dropDownImgeView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 0, constant: 16.0).isActive = true
         NSLayoutConstraint(item: dropDownImgeView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 0, constant: 16.0).isActive = true
 
-        NSLayoutConstraint(item: dropDownImgeView, attribute: .centerY, relatedBy: .equal, toItem: leftView, attribute: .centerY, multiplier: 1, constant: -4).isActive = true
+        NSLayoutConstraint(item: dropDownImgeView, attribute: .centerY, relatedBy: .equal, toItem: leftView, attribute: .centerY, multiplier: 1, constant: -2).isActive = true
         NSLayoutConstraint(item: dropDownImgeView, attribute: .trailing, relatedBy: .equal, toItem: phoneCodeTextField, attribute: .leading, multiplier: 1, constant: 0).isActive = true
-//        dropDownImgeView.backgroundColor = .yellow
-//        phoneCodeTextField.backgroundColor = .red
-//        leftView?.backgroundColor = .brown
+        flagButton.backgroundColor = .blue
+        dropDownImgeView.backgroundColor = .yellow
+        phoneCodeTextField.backgroundColor = .red
+        leftView?.backgroundColor = .brown
     }
 
 	open override func updateConstraints() {
